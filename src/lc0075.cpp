@@ -15,20 +15,14 @@ public:
   void sortColors(vector<int> &nums) {
     // Each of these point at the insertion index
     // of the next element of this color.
-    // `u` is the current unsorted index.
-    int r{}, w{}, b{int(nums.size()) - 1}, u{};
-    while (u <= b) {
-      switch (nums[u]) {
-      case 0:
-        std::swap(nums[u++], nums[r++]);
+    int r{}, w{}, b{int(nums.size()) - 1};
+    while (w <= b) {
+      if (!nums[w]) {
+        std::swap(nums[w++], nums[r++]);
+      } else if (nums[w] == 1) {
         ++w;
-        break;
-      case 1:
-        ++u;
-        ++w;
-        break;
-      case 2:
-        std::swap(nums[u], nums[b--]);
+      } else {
+        std::swap(nums[w], nums[b--]);
       }
     }
   }
