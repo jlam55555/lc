@@ -1,8 +1,8 @@
-// This is the same as lc2570.cpp
+// This is the same as lc2363.cpp.
 class Solution {
 public:
-  vector<vector<int>> mergeSimilarItems(vector<vector<int>> &items1,
-                                        vector<vector<int>> &items2) {
+  vector<vector<int>> mergeArrays(vector<vector<int>> &items1,
+                                  vector<vector<int>> &items2) {
     std::unordered_map<int, int> items;
     for (const auto &item : items1) {
       items[item[0]] += item[1];
