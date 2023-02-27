@@ -1,33 +1,30 @@
 class Solution {
 public:
-  // count how many elements of the current row
-  // are <= guess
-  int kth(int m, int n, int guess) {
-    int count = 0;
-    for (int i = 1; i <= m; ++i) {
-      count += min(guess / i, n);
+  // Count the number of elements less than v
+  // in the mxn multiplication table.
+  //
+  // This has time complexity O(min(m, n));
+  int NumElemsLt(int m, int n, int v) {
+    int res{}, a{std::min(m, n)}, b{std::max(m, n)};
+    for (int i{1}; i <= a; ++i) {
+      res += std::min(b, v / i);
     }
-    return count;
+    return res;
   }
 
+  // Binary search over the solution space.
+  // Time complexity: O(min(m,n) * log(m*n))
+  // Space complexity: O(1)
   int findKthNumber(int m, int n, int k) {
-    // loop invariant: the kth largest is in [r,m]
-    // i.e., mid is at least the kth largest
-
-    int l, r, mid;
-    for (l = 1, r = m * n; l < r;) {
-      mid = (l + r) / 2;
-
-      // loop invariant kept
-      if (kth(m, n, mid) >= k) {
+    int l{}, r{m * n};
+    while (l < r) {
+      auto mid{(l + r) >> 1};
+      if (NumElemsLt(m, n, mid) >= k) {
         r = mid;
-      }
-      // loop invariant broken
-      else {
+      } else {
         l = mid + 1;
       }
     }
-
     return l;
   }
 };
