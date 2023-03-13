@@ -1,6 +1,8 @@
 // As mentioned in @Mazhar_MIK's comment on the editorial, this is a
 // variant of the bin-packing problem and equivalent to lc0698.cpp
 // where k=4. I follow the same approach as that solution.
+//
+// See also lc1655.cpp, which is also a bin-packing variant.
 class Solution {
 public:
   // Optimization: bucket_i parameter prevents us from trying to add

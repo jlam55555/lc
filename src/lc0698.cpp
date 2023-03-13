@@ -1,9 +1,15 @@
+// See also lc0473.cpp and lc1655.cpp, which are also variants
+// of the bin-packing problem and use some of the optimizations
+// used here.
 class Solution {
 public:
   // This kind of feels like the coin change algorithm, with a few
   // "rounds." This is inspired by @GraceMeng's and @lee215's solutions.
   // My original solution was incredibly close to GraceMeng's solution,
   // but both my solution and GraceMeng's led to TLE on Leetcode.
+  //
+  // Note: this is a variant of the bin-packing problem. Hence there is
+  // no solution asymptotically better than an O(2^n) (exponential) search.
   //
   // This uses some optimizations to improve the performance, such as:
   // - Quitting once we've found the second-to-last bucket. (Inspired by
@@ -50,6 +56,7 @@ public:
     }
 
     // Recurse. Mark a coin as visited by setting it to zero.
+    // Note that we start at the position we left off in the bucket.
     for (; i < n; ++i) {
       if (coins[i] && sum + coins[i] <= per_bucket) {
         auto tmp{coins[i]};
