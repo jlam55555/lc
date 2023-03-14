@@ -1,4 +1,6 @@
-// Patience sort for longest increasing subsequence.
+// Patience sort for longest (strictly) increasing subsequence.
+//
+// See also: lc1671.cpp (does patience sort in both directions).
 class Solution {
 public:
   int lengthOfLIS(vector<int> &nums) {
