@@ -1,6 +1,8 @@
 // Patience sort for longest (strictly) increasing subsequence.
 //
-// See also: lc1671.cpp (does patience sort in both directions).
+// See also: lc1671.cpp (does patience sort in both directions)
+// and lc2111.cpp (which finds the longest non-decreasing
+// subsequence by using `std::upper_bound()`).
 class Solution {
 public:
   int lengthOfLIS(vector<int> &nums) {
