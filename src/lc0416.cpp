@@ -1,3 +1,8 @@
+// Classic Knapsack 0-1 with a bitwise optimization.
+// There is also a DP solution, but this is simpler and
+// more space efficient when the total is bounded
+// (so that we can use a fixed-size bitset) and we
+// don't need to count how many solutions there.
 class Solution {
 public:
   bool subset_sum(::vector<int> &values, int sum) {
