@@ -1,6 +1,8 @@
 // "Meet in the middle" approach, similar to lc2035.cpp.
 // This approach uses the same intuition as two-way BFS
 // to reduce the search space. See @zdu011's solution.
+//
+// See also: lc2035.cpp
 class Solution {
 public:
   // Generate all sums.
