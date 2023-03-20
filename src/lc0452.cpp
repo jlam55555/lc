@@ -1,3 +1,5 @@
+// See also: lc0757.cpp. It's a very similar question but
+// requires us to put two darts through each balloon.
 class Solution {
 public:
   // Greedy solution: sort by balloon interval ends, and
