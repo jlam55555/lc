@@ -12,18 +12,21 @@
  */
 class Solution {
 public:
-  // Level-order traversal, very similar to lc0515.cpp.
-  int findBottomLeftValue(TreeNode *root) {
+  // Level-order traversal, very similar to lc0513.cpp.
+  vector<int> largestValues(TreeNode *root) {
+    if (!root) {
+      return {};
+    }
+
     std::vector<TreeNode *> curr{root}, next;
-    int res;
+    std::vector<int> res;
 
     // Level-order traversal.
     while (!curr.empty()) {
-      // Get first element from this row.
-      res = curr.front()->val;
-
+      int row_max{INT_MIN};
       // Generate next row.
       for (auto *node : curr) {
+        row_max = std::max(row_max, node->val);
         if (node->left) {
           next.push_back(node->left);
         }
@@ -33,6 +36,7 @@ public:
       }
       std::swap(curr, next);
       next.clear();
+      res.push_back(row_max);
     }
     return res;
   }
